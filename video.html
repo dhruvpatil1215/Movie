@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Player</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            background: linear-gradient(to right, #4e54c8, #8f94fb); /* Gradient from blue to light purple */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            flex-direction: column;
+            color: white;
+        }
+        .player-container {
+            text-align: center;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            width: 80%;
+            max-width: 800px;
+        }
+        video {
+            width: 100%;
+            border-radius: 10px;
+        }
+        .controls {
+            margin-top: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        button {
+            margin: 5px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #ff6f61;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #ff9f80;
+        }
+        input[type="range"] {
+            width: 150px;
+        }
+    </style>
+</head>
+<body>
+    <div class="player-container">
+        <h2>Lucky Bhaskar - Hindi Dubbed</h2>
+        <h5>Only 480p is available
+        </h2>
+        <video id="videoPlayer" controls>
+            <source src="https://pixeldra.in/api/file/JYjgzKgA?download" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="controls">
+            <button onclick="playVideo()">Play</button>
+            <button onclick="pauseVideo()">Pause</button>
+            <label>
+                Volume:
+                <input type="range" id="volumeControl" min="0" max="1" step="0.1" value="1" onchange="setVolume()">
+            </label>
+        </div>
+    </div>
+
+    <script>
+        const video = document.getElementById('videoPlayer');
+        const volumeControl = document.getElementById('volumeControl');
+
+        function playVideo() {
+            video.play();
+        }
+
+        function pauseVideo() {
+            video.pause();
+        }
+
+        function setVolume() {
+            video.volume = volumeControl.value;
+        }
+    </script>
+</body>
+</html>
